@@ -7,41 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-simulator:
-    name: Build (iOS Simulator, unsigned)
-    runs-on: macos-15
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Show Xcode version
-        run: xcodebuild -version
-
-      # 自愈：手写 pbxproj 在个别 Xcode 版本上可能读不动，
-      # 那就用 XcodeGen 按 project.yml 现场重生成一个等价工程。
-      - name: Ensure project is readable (fallback to XcodeGen)
-        run: |
-          if xcodebuild -list -project iOSHUB.xcodeproj > /dev/null 2>&1; then
-            echo "✅ 工程文件可读，直接使用。"
-          else
-            echo "⚠️ 工程文件无法读取，改用 XcodeGen 重新生成。"
-            brew install xcodegen
-            xcodegen generate --spec project.yml
-          fi
-
-      - name: Build for simulator
-        run: |
-          xcodebuild \
-            -project iOSHUB.xcodeproj \
-            -scheme iOSHUB \
-            -configuration Debug \
-            -destination 'generic/platform=iOS Simulator' \
-            -derivedDataPath build \
-            CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO \
-            build
-
   build-unsigned-ipa:
-    name: Package unsigned IPA (Windows 可用)
+    name: Package unsigned IPA (Release, arm64)
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
@@ -52,25 +19,26 @@ jobs:
       - name: Ensure project is readable (fallback to XcodeGen)
         run: |
           if xcodebuild -list -project iOSHUB.xcodeproj > /dev/null 2>&1; then
-            echo "✅ 工程文件可读，直接使用。"
+            echo "OK pbxproj readable"
           else
-            echo "⚠️ 工程文件无法读取，改用 XcodeGen 重新生成。"
+            echo "WARN regenerating with XcodeGen"
             brew install xcodegen
             xcodegen generate --spec project.yml
           fi
 
       - name: Build for device without signing
         run: |
+          set -o pipefail
           xcodebuild \
             -project iOSHUB.xcodeproj \
             -scheme iOSHUB \
             -configuration Release \
-            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
             -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
-            build
+            build 2>&1 | tee build-device.log
 
       - name: Package Payload into .ipa
         run: |
@@ -88,3 +56,11 @@ jobs:
           name: iOSHUB-unsigned-ipa
           path: iOSHUB-unsigned.ipa
           if-no-files-found: error
+
+      - name: Upload build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build-device.log
+          if-no-files-found: ignore
