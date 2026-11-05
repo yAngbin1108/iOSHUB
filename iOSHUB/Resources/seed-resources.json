@@ -1403,5 +1403,171 @@
     ],
     "screenshots": [],
     "isFeatured": false
+  },
+  {
+    "id": "appdump",
+    "name": "AppDump",
+    "category": "devTools",
+    "summary": "砸壳和自签软件提取工具，利用 DarkSword 漏洞，适用于无法使用 lara 的用户。",
+    "detail": "AppDump 是 Decrypt-FairPlay 的公开通用版本，利用 DarkSword 内核漏洞实现对 FairPlay 加密 IPA 的砸壳和自签软件提取。适用于 iOS 17.0 - 18.7.1 和 iOS 26.0.x，不支持 M5 和 A19 以下设备。专为使用 lara 会重启的用户设计，当前已修复闪退问题。",
+    "symbol": "key.fill",
+    "developer": "yAngbin1108",
+    "developerURL": "https://github.com/yAngbin1108",
+    "githubURL": "https://github.com/yAngbin1108/AppDump",
+    "downloadURL": null,
+    "sourceURL": "https://github.com/yAngbin1108/AppDump",
+    "tutorialURL": "https://github.com/yAngbin1108/AppDump/blob/main/README.md",
+    "supportedIOS": [
+      "iOS 17.0 – 18.7.1",
+      "iOS 26.0.x"
+    ],
+    "supportedDevices": [
+      "A19 及以上"
+    ],
+    "compatibility": "partial",
+    "verificationNote": "利用 DarkSword 内核漏洞，具体支持范围以官方说明为准。",
+    "risk": "caution",
+    "tags": [
+      "fairplay",
+      "砸壳",
+      "自签提取",
+      "darksword",
+      "decrypt"
+    ],
+    "screenshots": [],
+    "isFeatured": true
+  },
+  {
+    "id": "lara",
+    "name": "Lara",
+    "category": "devTools",
+    "summary": "iOS Toolbox 使用 DarkSword 内核漏洞实现越狱级读写权限，iOS 17–26。",
+    "detail": "Lara 是由 rooootdev 开发的 iOS Toolbox，利用 DarkSword 内核读取/写入漏洞，为 iOS 17.0 – 18.7.1 和 iOS 26.0.x 提供沙盒逃逸和内核级文件读写能力。支持 A19 及以上芯片，排除 M5 和 A19 以下设备。AGPL-3.0 开源。",
+    "symbol": "shippingbox.fill",
+    "developer": "rooootdev",
+    "developerURL": "https://github.com/rooootdev",
+    "githubURL": "https://github.com/rooootdev/lara",
+    "downloadURL": null,
+    "sourceURL": "https://github.com/rooootdev/lara",
+    "tutorialURL": "https://github.com/rooootdev/lara/blob/main/README.md",
+    "supportedIOS": [
+      "iOS 17.0 – 18.7.1",
+      "iOS 26.0.x"
+    ],
+    "supportedDevices": [
+      "A19 及以上芯片"
+    ],
+    "compatibility": "verified",
+    "verificationNote": "AGPL-3.0 许可，内核漏洞以官方 Release 为准。",
+    "risk": "caution",
+    "tags": [
+      "lara",
+      "darksword",
+      "内核漏洞",
+      "越狱工具箱",
+      "ios17",
+      "ios26"
+    ],
+    "screenshots": [],
+    "isFeatured": true
+  },
+  {
+    "id": "cyanide-ios",
+    "name": "Cyanide iOS",
+    "category": "theming",
+    "summary": "基于 DarkSword 内核漏洞的 iOS 图标主题框架，液态玻璃风格主题。",
+    "detail": "Cyanide 是由 d1y 开发的 iOS 图标主题框架，基于 DarkSword 内核漏洞实现。提供液态玻璃风格的图标主题，支持多种主题切换。d1y/cyanide-ios 是移动端 tweak 实现，支持 iOS 17.0 – 18.7.1 和 iOS 26.0.x。",
+    "symbol": "paintpalette.fill",
+    "developer": "d1y",
+    "developerURL": "https://github.com/d1y",
+    "githubURL": "https://github.com/d1y/cyanide-ios",
+    "downloadURL": null,
+    "sourceURL": "https://github.com/d1y/cyanide-ios",
+    "tutorialURL": "https://github.com/d1y/cyanide-ios/blob/main/README.md",
+    "supportedIOS": [
+      "iOS 17.0 – 18.7.1",
+      "iOS 26.0.x"
+    ],
+    "supportedDevices": [
+      "A12 及以上 arm64e 设备"
+    ],
+    "compatibility": "verified",
+    "verificationNote": "AGPL-3.0 许可，以官方 Release 为准。",
+    "risk": "caution",
+    "tags": [
+      "cyanide",
+      "图标主题",
+      "液态玻璃",
+      "darksword",
+      "theming"
+    ],
+    "screenshots": [],
+    "isFeatured": true
+  },
+  {
+    "id": "0xjohnnydev-cyanide",
+    "name": "0xjohnnydev Cyanide",
+    "category": "theming",
+    "summary": "Cyanide 框架的 iOS 图标主题实现，DarkSword 内核漏洞驱动，支持 iOS 17–18.x。",
+    "detail": "0xjohnnydev Cyanide 是基于 DarkSword 内核 r/w 漏洞的 iOS 图标主题实现，与 d1y/cyanide 框架相同的技术栈，但专注于开发者自己维护的图标主题功能。采用 Objective-C 编写，运行在 iOS 17.0 – 18.7.1 和 iOS 26.0.x 上。",
+    "symbol": "paintpalette.fill",
+    "developer": "0xjohnnydev",
+    "developerURL": "https://github.com/0xjohnnydev",
+    "githubURL": "https://github.com/0xjohnnydev/cyanide",
+    "downloadURL": null,
+    "sourceURL": "https://github.com/0xjohnnydev/cyanide",
+    "tutorialURL": "https://github.com/0xjohnnydev/cyanide/blob/main/README.md",
+    "supportedIOS": [
+      "iOS 17.0 – 18.7.1",
+      "iOS 26.0.x"
+    ],
+    "supportedDevices": [
+      "A12 及以上 arm64e 设备"
+    ],
+    "compatibility": "verified",
+    "verificationNote": "基于 DarkSword 内核漏洞，支持范围以官方 Release 为准。",
+    "risk": "caution",
+    "tags": [
+      "cyanide",
+      "图标主题",
+      "液态玻璃",
+      "darksword",
+      "0xjohnnydev"
+    ],
+    "screenshots": [],
+    "isFeatured": true
+  },
+  {
+    "id": "kolbicz-cyanide",
+    "name": "kolbicz Cyanide",
+    "category": "theming",
+    "summary": "基于 DarkSword 内核漏洞的 iOS 图标主题框架，聚焦 Kolbicz 维护的 tweak。",
+    "detail": "kolbicz Cyanide 是基于 DarkSword 内核 r/w 漏洞的 iOS 工具，特别专注于 Kolbicz 开发者维护的 iOS 插件和图标主题。采用 Objective-C 编写，提供 129+ Stars 的流行工具。可以在 iOS 17.0 – 18.7.1 和 iOS 26.0.x 上使用。",
+    "symbol": "paintpalette.fill",
+    "developer": "kolbicz",
+    "developerURL": "https://github.com/kolbicz",
+    "githubURL": "https://github.com/kolbicz/Cyanide",
+    "downloadURL": null,
+    "sourceURL": "https://github.com/kolbicz/Cyanide",
+    "tutorialURL": "https://github.com/kolbicz/Cyanide/blob/main/README.md",
+    "supportedIOS": [
+      "iOS 17.0 – 18.7.1",
+      "iOS 26.0.x"
+    ],
+    "supportedDevices": [
+      "A12 及以上 arm64e 设备"
+    ],
+    "compatibility": "verified",
+    "verificationNote": "基于 DarkSword 内核漏洞，支持范围以官方 Release 为准。",
+    "risk": "caution",
+    "tags": [
+      "cyanide",
+      "图标主题",
+      "液态玻璃",
+      "darksword",
+      "kolbicz"
+    ],
+    "screenshots": [],
+    "isFeatured": true
   }
 ]
